@@ -1,0 +1,49 @@
+﻿@page
+@model RegisterModel
+
+
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+     
+    <div class="col-md-4 registerdescription">
+        <h2>Register</h2>
+        <form asp-route-returnUrl="@Model.ReturnUrl" id="forma1" method="post">
+            <h4>Create a new guest account.</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Email"></label>
+                <input asp-for="Input.Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password"></label>
+                <input asp-for="Input.Password" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword"></label>
+                <input asp-for="Input.ConfirmPassword" class="form-control" />
+            </div>
+
+            <div class="form-group" id="Guest">
+                <label asp-for="Input.GuestName">Name</label>
+                <input asp-for="Input.GuestName" class="form-control" />
+            </div>
+            <div class="form-group" id="Guest1">
+                <label asp-for="Input.GuestLastName">Last name</label>
+                <input asp-for="Input.GuestLastName" class="form-control" />
+            </div>
+
+
+            <button type="submit" class="btn btn-default">Register</button>
+        </form>
+
+    </div>
+</div>
+
+@section Scripts {
+
+    <partial name="_ValidationScriptsPartial" />
+
+}

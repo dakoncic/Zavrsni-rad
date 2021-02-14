@@ -1,0 +1,63 @@
+﻿@model MyClubModel
+<div class="row">
+    <div class="col-md-4 description">
+        <img class="ProfilePhoto" src="@Url.Content("~/images/UserImages/" + Model.ImagePath)" alt="">
+        <h2> @Html.DisplayFor(model => model.ClubName) </h2>
+        <h4> @Html.DisplayFor(m => m.Location) </h4>
+        <form asp-action="MyClub" enctype="multipart/form-data">
+            <h5>Edit your club description</h5>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <input type="hidden" asp-for="UserId" />
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea rows="5" asp-for="Description" class="form-control"> </textarea>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="image"></label>
+                <input type="file" asp-for="image" />
+            </div>
+
+            <input type="hidden" asp-for="ClubName" />
+            <input type="hidden" asp-for="Location" />
+
+            <button type="submit" class="btn btn-default">Save</button>
+        </form>
+    </div>
+    <div class="col-md-2">
+        
+        
+    </div>
+    <div class="col-md-6 description">
+        <h2>My events:</h2>
+
+        <a asp-action="CreateEvent" asp-route-UserId="@Model.UserId" class="bigger">Create new event</a>
+        <br />
+        <br />
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Events[0].EventName)
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Events)
+                {
+                    <tr>
+                        <td>
+                            @item.EventName
+                        </td>
+                        <td>
+                            <a asp-action="EditEvents" asp-route-id="@item.Id" asp-route-UserId="@Model.UserId" class="bigger">Edit</a> |
+                            <a asp-action="DeleteEvent" asp-route-id="@item.Id" asp-route-UserId="@Model.UserId" class="bigger">Cancel event</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

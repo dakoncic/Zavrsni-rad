@@ -1,0 +1,32 @@
+﻿@model IEnumerable<UserFollow>
+
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4 clubListOkvir">
+        <h2>All clubs:</h2>
+        <table class="table-condensed">
+            <tbody>
+                @foreach (var p in Model)
+                {
+                    <tr>
+                        <td>
+                            <a asp-action="ClubInfo" asp-route-id="@p.Id" class="bigger">@p.ClubName</a>
+                        </td>
+                        <td>
+                            <button type="button"
+                                    class="moja"
+                                    style="background-color:#687fd9"
+                                    data-isfollow="@p.IsFollowed"
+                                    data-clubid="@p.Id"
+                                    data-currentuserid="@User.FindFirstValue(ClaimTypes.NameIdentifier)">
+                                Follow
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

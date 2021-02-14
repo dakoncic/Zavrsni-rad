@@ -1,0 +1,54 @@
+﻿@model MyClubModel
+<div class="row">
+    <div class="col-md-4 clubInfo">
+        <img class="ProfilePhoto" src="@Url.Content("~/images/UserImages/" + Model.ImagePath)" alt="">
+
+        <br />
+        <br />
+        <h4>
+            <button type="button"
+                    class="clubme"
+                    style="background-color:#687fd9"
+                    data-isfollow="@Model.IsFollowed"
+                    data-clubid="@Model.UserId"
+                    data-currentuserid="@User.FindFirstValue(ClaimTypes.NameIdentifier)">
+                Follow
+            </button>
+        </h4>
+        <h2> @Html.DisplayFor(m => m.ClubName)</h2>
+        <h4><i class="fa fa-map-marker"></i> @Html.DisplayFor(m => m.Location) </h4>
+        <h4><i class="fa fa-thumbs-up"></i> @Html.DisplayFor(m => m.NumberOfFollowers) people follow this</h4>
+        <div>
+            <h3>@Html.DisplayNameFor(m => m.Description):</h3>
+
+            @Html.DisplayFor(m => m.Description)
+        </div>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-4 clubInfo">
+        <h4>Upcoming events:</h4>
+        <table class="table-condensed">
+            <tbody>
+                @foreach (var item in Model.UserGoings)
+                {
+                    <tr>
+                        <td>
+                            <a asp-action="EventInfo" asp-route-id="@item.Id" asp-route-UserId="@Model.UserId" class="bigger">@item.EventName</a>
+                        </td>
+                        <td>
+                            <button type="button"
+                                    class="goingmoja"
+                                    style="background-color:#687fd9"
+                                    data-isgoing="@item.IsGoing"
+                                    data-eventid="@item.Id"
+                                    data-currentuserid="@User.FindFirstValue(ClaimTypes.NameIdentifier)">
+                                Attend
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

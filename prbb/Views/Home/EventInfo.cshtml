@@ -1,0 +1,35 @@
+﻿@model CreateEventModel
+<div class="row">
+    <div class="col-md-2 ">
+    </div>
+    <div class="col-md-8 description">
+        <div class="col-md-6 ">
+            <img class="EventPhoto" src="@Url.Content("~/images/EventImages/" + Model.ImagePath)" alt="">
+        </div>
+        <div class="col-md-6 ">
+            <h2> @Html.DisplayFor(m => m.EventName) </h2>
+            <button type="button"
+                    class="goingEventInfo"
+                    style="background-color:#687fd9"
+                    data-isgoing="@Model.IsGoing"
+                    data-eventid="@Model.EventId"
+                    data-currentuserid="@User.FindFirstValue(ClaimTypes.NameIdentifier)">
+                Attend
+            </button>
+            <br />
+            <br />
+            <h4><i class="fa fa-calendar"></i> @Html.DisplayFor(m => m.StartDate) </h4>
+            <h4><i class="fa fa-check"></i> @Html.DisplayFor(m => m.NumberOfAttenders) Going</h4>
+            <h3>@Html.DisplayNameFor(m => m.Description):</h3>
+
+            @Html.DisplayFor(m => m.Description)
+
+            <br />
+            <br />
+            <a asp-action="ClubInfo" asp-route-id="@Model.UserId" class="bigger">Return to club</a>
+        </div>
+    </div>
+
+    <div class="col-md-2 ">
+    </div>
+</div>

@@ -1,0 +1,35 @@
+﻿@model List<EventListModel>
+<div class="row">
+    <div class="col-md-4">
+
+    </div>
+    <div class="col-md-4 description">
+        <h2>Upcoming events:</h2>
+        @if (Model.Count == 0)
+        {
+            <h4>You have no upcoming events.</h4>
+        }
+        <table class="table-condensed">
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <a asp-action="EventInfo" asp-route-id="@item.Id" asp-route-UserId="@item.UserId" class="bigger">@item.EventName</a>
+                        </td>
+                        <td>
+                            <button type="button"
+                                    class="attendmoja"
+                                    style="background-color:#687fd9"
+                                    data-isgoing="@item.IsGoing"
+                                    data-eventid="@item.Id"
+                                    data-currentuserid="@User.FindFirstValue(ClaimTypes.NameIdentifier)">
+                                Attend
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

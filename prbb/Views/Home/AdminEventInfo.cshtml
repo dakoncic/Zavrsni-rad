@@ -1,0 +1,24 @@
+﻿@model CreateEventModel
+
+<div class="row">
+    <div class="col-md-2 ">
+    </div>
+    <div class="col-md-8 description">
+        <div class="col-md-6 ">
+            <img class="EventPhoto" src="@Url.Content("~/images/EventImages/" + Model.ImagePath)" alt="">
+        </div>
+        <div class="col-md-6 ">
+            <h2> @Html.DisplayFor(m => m.EventName) </h2>
+            <h4> @Html.DisplayFor(m => m.StartDate) </h4>
+            <h3>@Html.DisplayNameFor(m => m.Description):</h3>
+
+            @Html.DisplayFor(m => m.Description)
+            <br />
+            <br />
+            <a asp-action="EditorPick" class="bigger"> Return to event list</a>
+        </div>
+    </div>
+
+    <div class="col-md-2 ">
+    </div>
+</div>

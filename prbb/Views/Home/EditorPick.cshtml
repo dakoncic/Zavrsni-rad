@@ -1,0 +1,66 @@
+﻿@model AllEventsModel
+
+<div class="row">
+    <div class="col-md-4 description">
+        @if (Model.AllEditorEvents.Count > 4)
+        {
+            <h4>Please remove events before adding new ones</h4>
+        }
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <div>Event</div>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Event in Model.AllEvents)
+                {
+                    <tr>
+                        <td>
+                            <a asp-action="AdminEventInfo" asp-route-id="@Event.Id" class="bigger">@Event.EventName</a>
+                        </td>
+                        @if (Model.AllEditorEvents.Count < 5)
+                        {
+                            <td>
+                                <a asp-action="AddMyPick" asp-route-id="@Event.Id" class="bigger">Add</a>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-4 description">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <div>Events Picked</div>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var PickedEvent in Model.AllEditorEvents)
+                {
+                    <tr>
+                        <td>
+                            <a asp-action="AdminEventInfo" asp-route-id="@PickedEvent.EventId" class="bigger">@PickedEvent.EventName</a>
+                        </td>
+
+                        <td>
+                            <a asp-action="RemoveMyPick" asp-route-id="@PickedEvent.EventId" class="bigger">Remove</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>

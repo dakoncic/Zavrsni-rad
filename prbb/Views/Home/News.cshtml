@@ -1,0 +1,34 @@
+﻿@model NewsEventModel
+<div class="row">
+    <div class="col-md-4 ">
+
+    </div>
+    <div class="col-md-4 description">
+        @if (Model.ChangedEvents.Count ==0 && Model.CreatedEvents.Count==0 && Model.DeletedEvents.Count==0)
+        {
+            <h4>You have no new notifications.</h4>
+        }
+
+        @foreach (var Event in Model.CreatedEvents)
+        {
+            <h3> A new Event has been created!</h3>
+            <h4><i class="fa fa-plus-circle"></i> <a asp-action="EventInfo" asp-route-id="@Event.Id" asp-route-UserId="@Event.UserId" >@Event.EventName</a></h4>
+            <hr />
+        }
+
+        @foreach (var Event in Model.ChangedEvents)
+        {
+            <h3>Event has been changed, please check new event details.</h3>
+            <h4><i class="fa fa-exchange"></i> <a asp-action="EventInfo" asp-route-id="@Event.EventId" asp-route-UserId="@Event.UserId" >@Event.EventName</a></h4>
+            <hr />
+        }
+
+        @foreach (var Event in Model.DeletedEvents)
+        {
+
+            <h3><i class="fa fa-minus-circle"></i> Event '@Event.EventName' has been canceled!</h3>
+            <hr />
+        }
+
+    </div>
+</div>

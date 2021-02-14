@@ -1,0 +1,57 @@
+﻿@model AllClubsAndGuestsModel
+<div class="row">
+    <div class="col-md-4 description">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <div>Club</div>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Club in Model.AllClubs)
+                {
+                    <tr>
+                        <td>
+                            @Club.ClubName
+                        </td>
+                        <td>
+                            <a asp-action="DeleteUser" asp-route-UserId="@Club.Id" class="bigger">Delete club</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-1">
+
+    </div>
+    <div class="col-md-4 description">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <div>Guest</div>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var Guest in Model.AllGuests)
+                {
+                    <tr>
+                        <td>
+                            @Guest.GuestName @Guest.GuestLastName
+                        </td>
+                        <td>
+                            <a asp-action="DeleteUser" asp-route-UserId="@Guest.Id" class="bigger">Delete guest</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
