@@ -1,6 +1,6 @@
 # :musical_note: BeatDrop :sparkles:
 
-Izrađena je web aplikacija za praćenje glazbenih događaja.Na aplikaciji se mogu registrirati klubovi te gosti.\
+Izrađena je web aplikacija za praćenje glazbenih događaja. Na aplikaciji se mogu registrirati klubovi te gosti.\
 Klub može kreirati, uređivati te otkazati događaje. Svaki događaj sadrži informacije o početku događaja, broj gostiju te opis događaja.
 Klub može urediti informacije o klubu te postaviti profilnu sliku. Svaki klub sadrži opis kluba, lokaciju te broj pratitelja.\
 </br>
