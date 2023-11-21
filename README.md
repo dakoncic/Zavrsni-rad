@@ -11,7 +11,7 @@ Na stranici je automatski registriran glavni administrator koji ima mogućnost b
 </br>
 Svaki korisnik ima prava pristupa stranici ovisno o njegovoj ulozi je li klub, gost, posjetitelj ili administrator. U postavkama svaki korisnik može promijeniti svoju lozinku te zatražiti novu ukoliko ju je zaboravio.
 
-:arrow_forward: Registriraj se na: https://beat-drop.azurewebsites.net/ </br>
+:arrow_forward: Registriraj se na: https://beat-drop.azurewebsites.net/ (offline) </br>
 :arrow_lower_right: Admin </br>
 :guardsman: username: admin@admin.com </br>
 :key: password: 654321
